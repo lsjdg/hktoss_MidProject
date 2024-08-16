@@ -1,2 +1,2 @@
 C,max_iter,penalty,solver
-10,100,l2,liblinear
+1,100,l2,liblinear
