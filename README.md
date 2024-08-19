@@ -4,6 +4,9 @@
 * branch name : <이름>_<현재 진행중인 작업>
     * ex HongGilDong_preprocessing
 * main 에서 작업하면 충돌나기 때문에, 반드시 branch 생성 또는 이동 후 작업
+    * github 페이지에서 branch 생성
+    * 변경사항 가져오기 : git fetch --all > git pull
+    => 실행하면 [new branch] 라고 표시됨
     * 현재 branch 확인 방법 : git branch
     * branch 이동 방법 : git checkout <branch_name>
     * branch 에서 작업 후, main branch 로 pull request 를 보냅니다
