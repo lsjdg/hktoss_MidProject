@@ -8,3 +8,8 @@
     * branch 이동 방법 : git checkout <branch_name>
     * branch 에서 작업 후, main branch 로 pull request 를 보냅니다
     * 해당 pull request 를 github 관리자가 검토 후, main branch 와 병합합니다.
+* 자기 branch 에서 작업한 후 변경사항을 저장하는 방법
+    * 자기 branch 에 우선 올리기
+    => git add . > git commit -m "commit message" > git push
+    * 자기 branch 에 저장 했으면, main 에 변경사항 올리기
+    => vscode 또는 github 에서 pull request 보내기 (본인 branch 에서 main 으로!)
