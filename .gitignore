@@ -129,7 +129,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-MidProject/data/
+MidProject/data/modified/
 
 # Spyder project settings
 .spyderproject
