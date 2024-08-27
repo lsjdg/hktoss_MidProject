@@ -1,5 +1,6 @@
-from data import load_data, ordinal, one_hot, standardization
-from trainer import train_model
+from data import *
+from trainer import *
+from parameters.params import *
 import pandas as pd
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
@@ -26,21 +27,6 @@ def run():
     X = df.drop('credit', axis=1)
     y = df['credit']
     
-    # Example parameter grids
-    param_grids = {
-        'RandomForest': {
-            'n_estimators': [50, 100, 200],
-            'max_depth': [None, 10, 20]
-        },
-        'XGBoost': {
-            'n_estimators': [50, 100, 200],
-            'learning_rate': [0.01, 0.1, 0.2]
-        },
-        'LightGBM': {
-            'n_estimators': [50, 100, 200],
-            'learning_rate': [0.01, 0.1, 0.2]
-        }
-    }
 
     results = []
 

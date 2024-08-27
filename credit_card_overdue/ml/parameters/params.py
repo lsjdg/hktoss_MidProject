@@ -47,3 +47,20 @@ random_forest_params = {
     'random_state': 2018,  # 난수 생성기 시드
     'n_jobs': -1  # 모든 CPU 코어 사용
 }
+
+logistic_regression_params = {
+    'penalty': 'l2',  # L2 정규화 사용 (일반적으로 사용됨)
+    'C': 1.0,  # 규제 강도 (낮을수록 강한 규제, 기본값은 1.0)
+    'solver': 'lbfgs',  # 최적화 알고리즘 (일반적으로 사용됨)
+    'max_iter': 100,  # 최대 반복 횟수
+    'random_state': 2018,
+    'n_jobs': -1  # 모든 CPU 코어 사용
+}
+
+svm_params = {
+    'C': 1.0,  # 규제 강도 (낮을수록 강한 규제)
+    'kernel': 'rbf',  # RBF 커널 사용 (일반적으로 사용됨)
+    'gamma': 'scale',  # 커널 계수 (데이터의 특징에 따라 'auto' 또는 'scale' 사용)
+    'max_iter': -1,  # 최대 반복 횟수 (제한 없음)
+    'random_state': 2018
+}
