@@ -16,10 +16,6 @@ def find_best_params(model, params, X_train, y_train):
     best_params_df.to_csv(f'parameters/best_params/{type(model).__name__}.csv', index=False)
     return grid_search.best_estimator_
 
-# Generate train and validation indices for each fold
-def get_fold_indices(X, y, cv=5):
-    return list(StratifiedKFold(n_splits=cv).split(X, y))
-
 # Fit the model with early stopping if applicable
 def fit_model(model, X_train, y_train, X_vld, y_vld):
     # define eval_set for XGB, LGBM
