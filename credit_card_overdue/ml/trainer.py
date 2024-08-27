@@ -17,7 +17,7 @@ def find_best_params(model, params, X_train, y_train):
     return grid_search.best_estimator_
 
 # Fit the model with early stopping if applicable
-def fit_model(model, X_train, y_train, X_vld, y_vld):
+def train_model(model, X_train, y_train, X_vld, y_vld):
     # define eval_set for XGB, LGBM
     eval_set = [(X_train, y_train), (X_vld, y_vld)] if hasattr(model, 'eval_set') else None
     verbose = 500 if hasattr(model, 'verbose') else 0
@@ -33,7 +33,7 @@ def fit_model(model, X_train, y_train, X_vld, y_vld):
 
 # Calculate metrics for the validation set
 def calculate_metrics(y_true, y_pred_proba):
-    y_pred = (y_pred_proba[:, 1] > 0.5).astype(int)  # set threshold as 0.5
+    y_pred = (y_pred_proba[:, 1] > 0.5).astype(int)  # set thres    hold as 0.5
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)
