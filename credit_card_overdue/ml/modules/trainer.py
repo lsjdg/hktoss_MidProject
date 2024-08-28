@@ -1,13 +1,10 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, log_loss
 from sklearn.base import clone
-import warnings
 import joblib
 
-warnings.filterwarnings('ignore')
 
 # find best params w/ GridSearch
 def find_best_params(model, params, X_train, y_train):
@@ -35,15 +32,14 @@ def train_model(model, X_train, y_train, X_vld, y_vld):
 
 # Calculate metrics for the validation set
 def calculate_metrics(y_true, y_pred_proba):
-    y_pred = (y_pred_proba[:, 1] > 0.5).astype(int)  # set threshold as 0.5
+    y_pred = y_pred_proba.argmax(axis=1)
     accuracy = accuracy_score(y_true, y_pred)
-    precision = precision_score(y_true, y_pred)
-    recall = recall_score(y_true, y_pred)
-    f1 = f1_score(y_true, y_pred)
-    logloss = log_loss(y_true, y_pred)
-    roc_auc = roc_auc_score(y_true, y_pred_proba[:, 1])
+    precision = precision_score(y_true, y_pred, average='weighted')
+    recall = recall_score(y_true, y_pred, average='weighted')
+    f1 = f1_score(y_true, y_pred, average='weighted')
+    logloss = log_loss(y_true, y_pred_proba)
+    roc_auc = roc_auc_score(y_true, y_pred_proba, multi_class='ovr', average='weighted')
 
     return accuracy, precision, recall, f1, logloss, roc_auc
-
 
 

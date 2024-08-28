@@ -1,21 +1,19 @@
-from modules.data_provider import *
+from prepare_data import load_train_test
 from ml.modules.metrics import *
 from modules.trainer import *
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from sklearn.svm import SVC
-from parameters.params import *
+from experiments.params import *
 
-# prepare train and test set
-X_train, X_test, y_train, y_test = prepare_data()
+# load train, test set
+X_train, X_test, y_train, y_test = load_train_test()
 
 # define models
 models = {
         'xgb': (XGBClassifier(), X_train, X_test, y_train, y_test),
         'lgbm': (LGBMClassifier(), X_train, X_test, y_train, y_test),
-        'lr': (LogisticRegression(), X_train, X_test, y_train, y_test),
         'svm': (SVC(probability=True), X_train, X_test, y_train, y_test),
         'rf': (RandomForestClassifier(), X_train, X_test, y_train, y_test)
     }
