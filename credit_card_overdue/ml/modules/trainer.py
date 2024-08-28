@@ -5,6 +5,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, log_loss
 from sklearn.base import clone
 import warnings
+import joblib
 
 warnings.filterwarnings('ignore')
 
@@ -13,8 +14,9 @@ def find_best_params(model, params, X_train, y_train):
     grid_search = GridSearchCV(estimator=model, param_grid=params, cv=5)
     grid_search.fit(X_train, y_train)
     best_params_df = pd.DataFrame([grid_search.best_params_])
-    best_params_df.to_csv(f'parameters/best_params/{type(model).__name__}.csv', index=False)
-    return grid_search.best_estimator_
+    best_params_df.to_csv(f'../parameters/best_params/{type(model).__name__}.csv', index=False)
+    model_filename = f'../parameters/best_models/{type(model).__name__}_best_model.pkl'
+    joblib.dump(grid_search.best_estimator_, model_filename)
 
 # Fit the model with early stopping if applicable
 def train_model(model, X_train, y_train, X_vld, y_vld):
@@ -33,7 +35,7 @@ def train_model(model, X_train, y_train, X_vld, y_vld):
 
 # Calculate metrics for the validation set
 def calculate_metrics(y_true, y_pred_proba):
-    y_pred = (y_pred_proba[:, 1] > 0.5).astype(int)  # set thres    hold as 0.5
+    y_pred = (y_pred_proba[:, 1] > 0.5).astype(int)  # set threshold as 0.5
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)

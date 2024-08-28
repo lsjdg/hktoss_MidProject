@@ -36,31 +36,31 @@ xgb_params = {
     'seed' : 2018
 }
 
-random_forest_params = {
-    'n_estimators': 1000,  # 트리의 개수
-    'max_depth': None,  # 트리의 최대 깊이 (None이면 깊이 제한 없음)
-    'min_samples_split': 2,  # 내부 노드를 분할하는 데 필요한 최소 샘플 수
-    'min_samples_leaf': 1,  # 리프 노드에 필요한 최소 샘플 수
-    'max_features': 'auto',  # 각 트리에서 사용할 최대 특성 수
-    'bootstrap': True,  # 부트스트랩 샘플링 사용 여부
-    'criterion': 'gini',  # 분할 품질 측정 함수 (또는 'entropy')
-    'random_state': 2018,  # 난수 생성기 시드
-    'n_jobs': -1  # 모든 CPU 코어 사용
+rf_params = {
+    'n_estimators': 1000,  
+    'max_depth': None,  
+    'min_samples_split': 2,  
+    'min_samples_leaf': 1,  
+    'max_features': 'auto',  
+    'bootstrap': True,  
+    'criterion': 'gini', 
+    'random_state': 2018, 
+    'n_jobs': -1  
 }
 
-logistic_regression_params = {
-    'penalty': 'l2',  # L2 정규화 사용 (일반적으로 사용됨)
-    'C': 1.0,  # 규제 강도 (낮을수록 강한 규제, 기본값은 1.0)
-    'solver': 'lbfgs',  # 최적화 알고리즘 (일반적으로 사용됨)
-    'max_iter': 100,  # 최대 반복 횟수
+lr_params = {
+    'penalty': 'l2',  
+    'C': 1.0,  
+    'solver': 'lbfgs',  
+    'max_iter': 100,  
     'random_state': 2018,
-    'n_jobs': -1  # 모든 CPU 코어 사용
+    'n_jobs': -1 
 }
 
 svm_params = {
-    'C': 1.0,  # 규제 강도 (낮을수록 강한 규제)
-    'kernel': 'rbf',  # RBF 커널 사용 (일반적으로 사용됨)
-    'gamma': 'scale',  # 커널 계수 (데이터의 특징에 따라 'auto' 또는 'scale' 사용)
-    'max_iter': -1,  # 최대 반복 횟수 (제한 없음)
+    'C': 1.0,  
+    'kernel': 'rbf',  
+    'gamma': 'scale',  
+    'max_iter': -1,  
     'random_state': 2018
 }
