@@ -9,7 +9,7 @@ from sklearn.svm import SVC
 from experiments.params import *
 
 # MLflow experiment 설정
-mlflow.set_experiment("parameter_tuning_experiment")
+mlflow.set_experiment('parameter_tuning')
 
 # Load train, test set
 X_train, X_test, y_train, y_test = load_train_test()
@@ -24,7 +24,7 @@ models = {
 
 # Find best parameters by GridSearch
 for model_name, (model, X_trn, X_tst, y_trn, y_tst) in models.items():
-    with mlflow.start_run(run_name=f"GridSearch_{model_name}") as run:
+    with mlflow.start_run(run_name=f'GridSearch_{model_name}') as run:
         print(f'### {model_name} ###')
         best_params = find_best_params(model, globals().get(f'{model_name}_params', {}), X_trn, y_trn)
         
