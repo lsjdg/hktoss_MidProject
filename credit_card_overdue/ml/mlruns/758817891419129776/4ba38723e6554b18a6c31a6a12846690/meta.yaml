@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/leeseungjun/Desktop/projects/hktoss_MidProject/credit_card_overdue/ml/mlruns/758817891419129776/4ba38723e6554b18a6c31a6a12846690/artifacts
+end_time: 1724925059361
+entry_point_name: ''
+experiment_id: '758817891419129776'
+lifecycle_stage: active
+run_id: 4ba38723e6554b18a6c31a6a12846690
+run_name: prepare data
+run_uuid: 4ba38723e6554b18a6c31a6a12846690
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724925059355
+status: 4
+tags: []
+user_id: leeseungjun
