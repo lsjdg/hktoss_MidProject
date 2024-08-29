@@ -7,26 +7,35 @@ import joblib
 
 
 # find best params w/ GridSearch
+
 def find_best_params(model, params, X_train, y_train):
-    grid_search = GridSearchCV(estimator=model, param_grid=params, cv=5)
+    # Create GridSearchCV object with verbose parameter to show progress
+    grid_search = GridSearchCV(estimator=model, param_grid=params, cv=5, verbose=3)
+    
+    # Fit the model
     grid_search.fit(X_train, y_train)
+    
+    # Save best parameters to CSV
     best_params_df = pd.DataFrame([grid_search.best_params_])
-    best_params_df.to_csv(f'../parameters/best_params/{type(model).__name__}.csv', index=False)
-    model_filename = f'../parameters/best_models/{type(model).__name__}_best_model.pkl'
+    best_params_csv_path = f'ml/experiments/best_params/{type(model).__name__}_best_params.csv'
+    best_params_df.to_csv(best_params_csv_path, index=False)
+    
+    # Save the best model to a file
+    model_filename = f'ml/experiments/tuned_models/{type(model).__name__}_tuned_model.pkl'
     joblib.dump(grid_search.best_estimator_, model_filename)
 
+    print(f'Best parameters saved to {best_params_csv_path}')
+    print(f'Best model saved to {model_filename}')
+
+    return grid_search.best_params_
+
 # Fit the model with early stopping if applicable
-def train_model(model, X_train, y_train, X_vld, y_vld):
-    # define eval_set for XGB, LGBM
-    eval_set = [(X_train, y_train), (X_vld, y_vld)] if hasattr(model, 'eval_set') else None
+def train_model(model, X_train, y_train):
     verbose = 500 if hasattr(model, 'verbose') else 0
-    early_stopping_rounds = 30 if hasattr(model, 'early_stopping_rounds') else None
     
     model.fit(
         X_train, y_train,
-        eval_set=eval_set,
         verbose=verbose,
-        early_stopping_rounds=early_stopping_rounds
     )
     return model
 

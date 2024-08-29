@@ -1,4 +1,4 @@
-from trainer import *
+from ml.modules.trainer import *
 
 # Train model and return metrics for comparison
 def get_metrics(model, X_train, y_train, X_test, y_test):
