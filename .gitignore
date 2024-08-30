@@ -130,7 +130,6 @@ ENV/
 env.bak/
 venv.bak/
 credit_card_overdue/data/
-credit_card_overdue/mlruns/
 
 # Spyder project settings
 .spyderproject
