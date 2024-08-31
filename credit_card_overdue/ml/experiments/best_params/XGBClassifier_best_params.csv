@@ -1,2 +1,0 @@
-booster,eval_metric,learning_rate,max_depth,n_estimators,objective,tree_method
-gbtree,mlogloss,0.01,7,3000,multi:softprob,hist
