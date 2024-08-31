@@ -12,7 +12,7 @@ import os
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
-mlflow.set_experiment("credit_card_overdue_pred")
+mlflow.set_experiment("param tuning")
 
 X_train, X_test, y_train, y_test = load_train_test()
 
@@ -20,11 +20,9 @@ X_train, X_test, y_train, y_test = load_train_test()
 models = {
     "XGBClassifier": (XGBClassifier(), X_train, X_test, y_train, y_test),
     "LGBMClassifier": (LGBMClassifier(), X_train, X_test, y_train, y_test),
-    "SVC": (SVC(probability=True), X_train, X_test, y_train, y_test),
     "RandomForestClassifier": (
         RandomForestClassifier(),
         X_train,
-        X_test,
         y_train,
         y_test,
     ),
