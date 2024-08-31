@@ -1,4 +1,4 @@
-from trainer import *
+from ml.modules.trainer import *
 
 # Train model and return metrics for comparison
 def get_metrics(model, X_train, y_train, X_test, y_test):
@@ -9,7 +9,7 @@ def get_metrics(model, X_train, y_train, X_test, y_test):
     pred_proba = trained_model.predict_proba(X_test)
     
     # Calculate metrics
-    accuracy, precision, recall, f1, logloss, roc_auc = calculate_metrics(y_test, pred_proba)
+    accuracy, precision, recall, f1, logloss, roc_auc = get_metrics(y_test, pred_proba)
     
     # Store metrics in a dictionary
     metrics = {
