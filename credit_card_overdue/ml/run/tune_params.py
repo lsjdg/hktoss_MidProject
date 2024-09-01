@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from sklearn.svm import SVC
-from ml.experiments.params import *
+from ml.modules.params import *
 import warnings
 import os
 
