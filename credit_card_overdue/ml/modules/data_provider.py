@@ -2,11 +2,12 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedShuffleSplit
 import pickle
+import os
 
 
 # load data
 def load_data():
-    DATA_PATH = "data/modified/PCA_3_df.csv"
+    DATA_PATH = "data/given/PCA_3_df.csv"
     df = pd.read_csv(DATA_PATH)
     return df
 
@@ -31,7 +32,11 @@ def reduce_data(X, y, reduction_ratio=0.1):
     return X_reduced, y_reduced
 
 
-## save data as pickle
-def save_data(data, file_path):
-    with open(file_path, "wb") as file:
-        pickle.dump(data, file)
+# save data as pickle
+def save_data(data, path):
+    # Ensure the directory exists
+    dir_name = os.path.dirname(path)
+    os.makedirs(dir_name, exist_ok=True)
+
+    with open(path, "wb") as f:
+        pickle.dump(data, f)

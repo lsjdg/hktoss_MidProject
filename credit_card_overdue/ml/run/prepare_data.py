@@ -30,15 +30,16 @@ with mlflow.start_run(run_name="prepare data") as run:
     X_train_reduced, y_train_reduced = reduce_data(X_train, y_train)
     X_test_reduced, y_test_reduced = reduce_data(X_test, y_test)
 
-    # Save data as pkl
+    # Define data path
     DATA_PATH = "data/modified/train_test_set/"
 
+    # Save data as pkl, ensuring directories exist
     save_data(X_train_reduced, DATA_PATH + "X_train.pkl")
     save_data(X_test_reduced, DATA_PATH + "X_test.pkl")
     save_data(y_train_reduced, DATA_PATH + "y_train.pkl")
     save_data(y_test_reduced, DATA_PATH + "y_test.pkl")
 
-    # log train, test sets
+    # Log train, test sets
     mlflow.log_artifact(DATA_PATH + "X_train.pkl")
     mlflow.log_artifact(DATA_PATH + "X_test.pkl")
     mlflow.log_artifact(DATA_PATH + "y_train.pkl")
