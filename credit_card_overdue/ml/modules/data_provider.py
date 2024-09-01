@@ -3,22 +3,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedShuffleSplit
 import pickle
 
+
 # load data
 def load_data():
-    DATA_PATH = 'data/modified/PCA_3_df.csv'
+    DATA_PATH = "data/modified/PCA_3_df.csv"
     df = pd.read_csv(DATA_PATH)
     return df
+
 
 # train test split
 def prepare_data():
     df = load_data()
     X_train, X_test, y_train, y_test = train_test_split(
-        df.drop('target', axis=1),
-        df['target'],
-        random_state=42,
-        stratify=df['target']
+        df.drop("target", axis=1), df["target"], random_state=42, stratify=df["target"]
     )
     return X_train, X_test, y_train, y_test
+
 
 # reduce data demension
 def reduce_data(X, y, reduction_ratio=0.1):
@@ -33,5 +33,5 @@ def reduce_data(X, y, reduction_ratio=0.1):
 
 ## save data as pickle
 def save_data(data, file_path):
-    with open(file_path, 'wb') as file:
+    with open(file_path, "wb") as file:
         pickle.dump(data, file)

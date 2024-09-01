@@ -12,7 +12,7 @@ mlflow.set_experiment("model evaluation")
 for model_name in models:
     model_filename = f"ml/experiments/tuned_models/{model_name}_tuned_model.pkl"
     loaded_model = joblib.load(model_filename)
-    
+
     with mlflow.start_run(run_name=f"Model_Evaluation_{model_name}"):
         # Predict probabilities for test data
         y_pred_proba = loaded_model.predict_proba(X_test)
@@ -25,7 +25,7 @@ for model_name in models:
             mlflow.log_metric(key, value)
 
         # Log the model to MLflow
-        mlflow.sklearn.log_model(loaded_model, 'model')
+        mlflow.sklearn.log_model(loaded_model, "model")
 
         # Save metrics as CSV and log as an artifact
         metrics_df = pd.DataFrame([metrics_dict])
