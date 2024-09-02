@@ -1,25 +1,5 @@
 from ml.modules.data_provider import *
-import pickle
 import mlflow
-
-
-def load_train_test():
-    DATA_PATH = "data/modified/train_test_set/"
-
-    with open(DATA_PATH + "X_train.pkl", "rb") as file:
-        X_train = pickle.load(file)
-
-    with open(DATA_PATH + "X_test.pkl", "rb") as file:
-        X_test = pickle.load(file)
-
-    with open(DATA_PATH + "y_train.pkl", "rb") as file:
-        y_train = pickle.load(file)
-
-    with open(DATA_PATH + "y_test.pkl", "rb") as file:
-        y_test = pickle.load(file)
-
-    return X_train, X_test, y_train, y_test
-
 
 mlflow.set_experiment("prepare data")
 
@@ -30,17 +10,13 @@ with mlflow.start_run(run_name="prepare data") as run:
     X_train_reduced, y_train_reduced = reduce_data(X_train, y_train)
     X_test_reduced, y_test_reduced = reduce_data(X_test, y_test)
 
-    # Define data path
-    DATA_PATH = "data/modified/train_test_set/"
+    # Save artifacts
+    save_artifacts(X_train_reduced, "X_train_reduced", clean_up=True)
+    save_artifacts(X_test_reduced, "X_test_reduced", clean_up=True)
+    save_artifacts(y_train_reduced, "y_train_reduced", clean_up=True)
+    save_artifacts(y_test_reduced, "y_test_reduced", clean_up=True)
 
-    # Save data as pkl, ensuring directories exist
-    save_data(X_train_reduced, DATA_PATH + "X_train.pkl")
-    save_data(X_test_reduced, DATA_PATH + "X_test.pkl")
-    save_data(y_train_reduced, DATA_PATH + "y_train.pkl")
-    save_data(y_test_reduced, DATA_PATH + "y_test.pkl")
-
-    # Log train, test sets
-    mlflow.log_artifact(DATA_PATH + "X_train.pkl")
-    mlflow.log_artifact(DATA_PATH + "X_test.pkl")
-    mlflow.log_artifact(DATA_PATH + "y_train.pkl")
-    mlflow.log_artifact(DATA_PATH + "y_test.pkl")
+    # Save the run_id
+    run_id = run.info.run_id
+    with open("ml/experiments/run_ids/prepare_data_id.txt", "w") as f:
+        f.write(run_id)
