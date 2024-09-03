@@ -1,5 +1,3 @@
-**아래 내용 삭제 후 PR 작성!!**
-
 `<prefix> : <TITLE>`
 
 ## What was added
