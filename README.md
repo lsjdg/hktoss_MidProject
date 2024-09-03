@@ -8,6 +8,7 @@
 => https://drive.google.com/file/d/18bBNDn5bAz1gCsQEvVNBlKx_laSsyHIp/view?usp=drive_link
 
 ### 실행
+* clone 후 test branch 로 이동
 * run_pipeline.py 실행
 
 * MacOS 에서 실행 시 XGBoost 모델 관련 error 발생 시,
