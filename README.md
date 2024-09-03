@@ -8,9 +8,7 @@
 => https://drive.google.com/file/d/18bBNDn5bAz1gCsQEvVNBlKx_laSsyHIp/view?usp=drive_link
 
 ### 실행
-* credit_card_overdue/ml/run/run_pipeline.py 실행
-=> 터미널에서 credit_card_overdue 디렉토리로 이동
-=> python -m ml.run.run_pipeline
+* run_pipeline.py 실행
 
 * MacOS 에서 실행 시 XGBoost 모델 관련 error 발생 시,
 => homebrew 및 libomp 설치가 필요합니다
