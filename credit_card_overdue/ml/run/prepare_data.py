@@ -15,6 +15,7 @@ with mlflow.start_run(run_name="prepare data") as run:
     save_artifacts(X_test_reduced, "X_test_reduced", clean_up=True)
     save_artifacts(y_train_reduced, "y_train_reduced", clean_up=True)
     save_artifacts(y_test_reduced, "y_test_reduced", clean_up=True)
+    print("artifacts successfully logged")
 
     # Save the run_id
     run_id = run.info.run_id
