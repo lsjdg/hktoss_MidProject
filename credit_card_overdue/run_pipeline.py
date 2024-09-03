@@ -1,11 +1,10 @@
 import subprocess
-import os
 
 
 def run_code(module_name):
     try:
         print(f"Running {module_name}...")
-        result = subprocess.run(["python", "-m", module_name], check=True)
+        subprocess.run(["python", "-m", module_name], check=True)
         print(f"{module_name} successfully done")
     except subprocess.CalledProcessError as e:
         print(f"Error running {module_name}:\n{e.stderr}")
