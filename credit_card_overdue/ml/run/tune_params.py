@@ -1,6 +1,5 @@
 import mlflow
 from ml.modules.data_provider import load_artifacts, save_artifacts
-from ml.modules.metrics import *
 from ml.modules.trainer import find_best_params_and_estimator
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
