@@ -1,18 +1,16 @@
-# hktoss_MidProject
+## 고객 데이터를 이용한 신용카드 연체 여부 예측
 
-## branch 사용법
-* branch name : <이름>_<현재 진행중인 작업>
-    * ex HongGilDong_preprocessing
-* main 에서 작업하면 충돌나기 때문에, 반드시 branch 생성 또는 이동 후 작업
-    * github 페이지에서 branch 생성
-    * 변경사항 가져오기 : git fetch --all > git pull
-    => 실행하면 [new branch] 라고 표시됨
-    * 현재 branch 확인 방법 : git branch
-    * branch 이동 방법 : git checkout <branch_name>
-    * branch 에서 작업 후, main branch 로 pull request 를 보냅니다
-    * 해당 pull request 를 github 관리자가 검토 후, main branch 와 병합합니다.
-* 자기 branch 에서 작업한 후 변경사항을 저장하는 방법
-    * 자기 branch 에 우선 올리기
-    => git add . > git commit -m "commit message" > git push
-    * 자기 branch 에 저장 했으면, main 에 변경사항 올리기
-    => vscode 또는 github 에서 pull request 보내기 (본인 branch 에서 main 으로!)
+#### 개요
+* 금융 데이터가 부족한 고객들을 대상으로 은행에서 신용카드 연체 여부와 이에 관련된 고객 신용도를 예측하기 위한 인사이트 도출
+
+#### 데이터 
+* credit_card_overdue/data/modified/ 디렉토리에 아래 링크에 제공된 PCA_3_df.csv 파일 추가
+=> https://drive.google.com/file/d/18bBNDn5bAz1gCsQEvVNBlKx_laSsyHIp/view?usp=drive_link
+
+### 실행
+* credit_card_overdue/ml/run/run_pipeline.py 실행
+=> 터미널에서 credit_card_overdue 디렉토리로 이동
+=> python -m ml.run.run_pipeline
+
+* MacOS 에서 실행 시 XGBoost 모델 관련 error 발생 시,
+=> homebrew 및 libomp 설치가 필요합니다
