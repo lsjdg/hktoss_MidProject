@@ -16,7 +16,11 @@ def load_data(DATA_PATH="data/modified/PCA_3_df.csv"):
 def prepare_data():
     df = load_data()
     X_train, X_test, y_train, y_test = train_test_split(
-        df.drop("target", axis=1), df["target"], random_state=42, stratify=df["target"]
+        df.drop("target", axis=1),
+        df["target"],
+        test_size=0.25,
+        random_state=42,
+        stratify=df["target"],
     )
     return X_train, X_test, y_train, y_test
 
