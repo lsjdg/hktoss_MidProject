@@ -1,9 +1,12 @@
-## 고객 데이터를 이용한 신용카드 연체 여부 예측
+# 고객 데이터를 이용한 신용카드 연체 여부 예측
 
-#### 개요
+### 개요
 * 금융 데이터가 부족한 고객들을 대상으로 은행에서 신용카드 연체 여부와 이에 관련된 고객 신용도를 예측하기 위한 인사이트 도출
-
-#### 데이터 
+#### Pipeline
+![pipeline](img/model_pipeline.png)
+#### data flow
+![data flow](img/dataFlow.png)
+### 데이터 
 * credit_card_overdue/data/modified/ 디렉토리에 아래 링크에 제공된 PCA_3_df.csv 파일 추가<br>
 => https://drive.google.com/file/d/18bBNDn5bAz1gCsQEvVNBlKx_laSsyHIp/view?usp=drive_link
 
