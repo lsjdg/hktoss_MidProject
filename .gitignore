@@ -135,6 +135,7 @@ credit_card_overdue/data/modified/train_test_set/.gitkeep
 credit_card_overdue/ml/experiments/*
 !credit_card_overdue/ml/experiments/run_ids/
 credit_card_overdue/mlruns/
+img/
 
 # Spyder project settings
 .spyderproject
