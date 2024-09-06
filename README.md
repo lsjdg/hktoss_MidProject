@@ -16,7 +16,9 @@
 
 * MacOS 에서 실행 시 XGBoost 모델 관련 error 발생 시,
     * homebrew 및 libomp 설치가 필요합니다
-    * install homebrew : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    * install libomp : brew install libomp
+    * install homebrew : 
+    ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+    * install libomp : 
+    ```brew install libomp```
 
 
